@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from misc.cyverse_sphinx_conf import *  # noqa
 
-project = 'Using VICE DESeq2 for RNA-Seq Differential Expression Analysis'
+project = 'starBlast'
 copyright = '2019, CyVerse'
 author = 'CyVerse'
 version = '1.0'
