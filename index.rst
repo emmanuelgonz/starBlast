@@ -89,6 +89,24 @@ Click on the following button to quick launch sequence server with two blast dat
 
 Atmosphere Cloud Setup
 ----------------------
+To deploy slastEasy setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/de/>`_.
+
+You will need to launch a Master Atmosphere instance that will host sequenceServer and one or more Worker Atmosphere instances as needed to distribute the blast jobs. 
+
+Both the Master and Worker Virtual Machine instances use Docker containers to run sequenceserver and connect Workers. 
+
+Setting Up Master Instance
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Go to https://atmo.cyverse.org and log in with your Cyverse Username and Password
+2. Launch a Master (medium1) instance which will broadcast as a Master using '_this <https://atmo.cyverse.org/application/images> image with docker preinstalled.
+3. When the instance is ready showing Active (with a green dot) ssh into your virtual machine using ssh <CYVERSE_USERNAME>@<MASTER_VM_IP_ADDRESS> and enter your cyverse password.
+
+4. copy and pase the following code to launch sequence server ready to distribute BLAST queries to workers
+
+.. code:: 
+
+   docker blah blah blah
+
 
 
 ----
