@@ -18,9 +18,6 @@ starBlast VICE
 
 VICE is a Visual and Interactive Computing Environment which is the latest feature in CyVerse’s Discovery Environment (DE) for running interactive apps such as Rstudio and Jupyter Notebooks. 
 
-Click on the following button to quick launch sequence server with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4)
-
-	|sequenceServer|_
 
 starBlast Atmosphere Cloud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,9 +80,13 @@ VICE Setup
 ----------
 To set up a custom database on the VICE platform, ...
 
-Click on the following button to quick launch sequence server with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4)
+1. Click on the following button to quick launch sequence server with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4)
 
 	|sequenceServer|_
+	
+2. Click [Launch Analysis]
+3. Check the Bell Icon for a link to your sequenceserver instance
+4. Start BLASTING
 
 ----
 
@@ -119,12 +120,12 @@ Setting Up Worker Instance
 
 .. code:: 
 
-   docker blah <WORKER_VM_IP_ADDRESS> blah 
+   docker blah <MASTER_VM_IP_ADDRESS> blah 
    
 Start Blasting
 ~~~~~~~~~~~~~~
 
-Enter the <WORKER_VM_IP_ADDRESS> in your browser using the actual Master IP address to start BLASTING!
+Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actual Master IP address to start BLASTING!
 
 .. code::
 
@@ -135,7 +136,27 @@ Enter the <WORKER_VM_IP_ADDRESS> in your browser using the actual Master IP addr
 HPC Setup
 ---------
 
+First, you will need to follow the above steps for setting up a Worker instance on Atmosphere. Then you can follow these steps to set up Workers on HPC using PBS scripts:
 
+For more info on setting up PBS scripts andusing qsub see <add link here>
+
+Once you have a Master Atmosphere Instance: 
+1. Log in to hpc
+2. create PBS script <add instructions to pbs>
+	- load/get cctools 
+	- worqueue_factory <MASTER_VM_IP+ADDRESS>
+3. Use the qsub command to run PBS scripts
+
+.. code::
+    
+   qsub blah blah blah blah
+   
+4. Start BLASTING! Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actual Master IP address.
+
+.. code::
+
+   <WORKER_VM_IP_ADDRESS>
+   
 ----
 
 
