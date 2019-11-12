@@ -25,6 +25,8 @@ Click on the following button to quick launch sequence server with two blast dat
 starBlast Atmosphere Cloud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+atmosphere starBlast breathes life into stars
+
 starBlast HPC
 ~~~~~~~~~~~~~
 
@@ -39,25 +41,9 @@ What is Work_Queue?
 
 Workqueue queues work to workers which are queued in a work queue.
 
-Choosing 
--------------------------------
-
-*In order to set up starBlast, you will need access to the following services/software*
-
-	.. list-table::
-	    :header-rows: 1
-
-	    * - Prerequisite
-	      - Preparation/Notes
-	      - Link/Download
-	    * - CyVerse account
-	      - You will need a CyVerse account to complete this exercise
-	      - `Register <https://user.cyverse.org/>`_
-
-----
 
 Platform(s)
-~~~~~~~~~~~
+-----------
 
 *We will use the following CyVerse platform(s):*
 
@@ -82,38 +68,43 @@ Platform(s)
       - `Atmosphere <https://atmo.cyverse.org/de/>`_
       - `Atmosphere Manual <https://wiki.cyverse.org/wiki/display/DEmanual/Table+of+Contents>`_
       - `Guide <https://learning.cyverse.org/projects/discovery-environment-guide/en/latest/>`__
+    * - starBlast HPC
+      - HPC & Atmosphere Cloud
+      - 50-100 Students
+      - `cctools <https://atmo.cyverse.org/de/>`_
+      - `PBS on HPC  <https://wiki.cyverse.org/wiki/display/DEmanual/Table+of+Contents>`_
+      - `Workqueue <https://learning.cyverse.org/projects/discovery-environment-guide/en/latest/>`__
+
+----
+
+VICE Setup
+----------
+To set up a custom database on the VICE platform, ...
+
+Click on the following button to quick launch sequence server with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4)
+
+	|sequenceServer|_
+
+----
+
+Atmosphere Cloud Setup
+----------------------
 
 
 ----
 
-
-----
-
-
-----
-
+HPC Setup
+---------
 
 
 ----
 
-Additional information, help
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- Link to `Webinar Prezi <https://prezi.com/2oyda-v_oags/?utm_campaign=share&utm_medium=copy>`_ 
-
-- See detailed `RMTA wiki <https://wiki.cyverse.org/wiki/display/DEapps/RMTA+v2.6.1>`_ 
-
-- See beginner's guide to `DESeq2 <https://workshop.eupathdb.org/bop/pdfs/beginner_DeSeq2.pdf>`_
-
-- Search for an answer: `CyVerse Learning Center <http://learning.cyverse.org>`_ or `CyVerse Wiki <https://wiki.cyverse.org>`_
-
-- Contact CyVerse support by clicking the intercom button on the page.
 
 ----
 
 **Fix or improve this documentation**
 
-- On Github: `Repo link <https://github.com/CyVerse-learning-materials/fastqc_quickstart>`_
+- On Github: `Repo link <https://github.com/sateeshperi/starBlast/>`_
 - Send feedback: `Tutorials@CyVerse.org <Tutorials@CyVerse.org>`_
 
 ----
