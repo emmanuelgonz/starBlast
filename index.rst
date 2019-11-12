@@ -101,7 +101,7 @@ Both the Master and Worker Virtual Machine instances use Docker containers to ru
 Setting Up Master Instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. Go to https://atmo.cyverse.org and log in with your Cyverse Username and Password
-2. Launch a Master (medium1) instance which will broadcast as a Master using '_this <https://atmo.cyverse.org/application/images> image with docker preinstalled.
+2. Launch a Master (medium1) instance which will broadcast as a Master using `this <https://atmo.cyverse.org/application/images>`_ image with docker preinstalled.
 3. When the instance is ready showing Active (with a green dot) ssh into your virtual machine using ssh <CYVERSE_USERNAME>@<MASTER_VM_IP_ADDRESS> and enter your cyverse password.
 
 4. copy and pase the following code to launch sequence server ready to distribute BLAST queries to workers
@@ -113,7 +113,7 @@ Setting Up Master Instance
 Setting Up Worker Instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. Go to https://atmo.cyverse.org and log in with your Cyverse Username and Password
-2. Launch a Worker (XLarge1) instance which will connect to the Master using '_this <https://atmo.cyverse.org/application/images> image with docker preinstalled.
+2. Launch a Worker (XLarge1) instance which will connect to the Master using `this <https://atmo.cyverse.org/application/images>`_ image with docker preinstalled.
 3. When the instance is ready showing Active (with a green dot) ssh into your virtual machine using ssh <CYVERSE_USERNAME>@<WORKER_VM_IP_ADDRESS> and enter your cyverse password.
 
 4. copy and pase the following code to connect the Worker to the Master. You will need to copy the Master's IP Address and replace <WORKER_VM_IP_ADDRESS> with the actual IP Address of the MASTER. This will tell the Worker where to find the master. 
