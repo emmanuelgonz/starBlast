@@ -13,18 +13,18 @@ What is starBlast?
 
 starBlast blasts stars and starts blasting stars
 
-starBlast VICE
+starBlast-VICE
 ~~~~~~~~~~~~~~
 
 VICE is a Visual and Interactive Computing Environment which is the latest feature in CyVerse’s Discovery Environment (DE) for running interactive apps such as Rstudio and Jupyter Notebooks. 
 
 
-starBlast Atmosphere Cloud
+starBlast-Atmosphere Cloud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 atmosphere starBlast breathes life into stars
 
-starBlast HPC
+starBlast-HPC
 ~~~~~~~~~~~~~
 
 High performance computers blast starblast blast queries with performance that is high in the stars
@@ -76,8 +76,8 @@ Platform(s)
 
 ----
 
-VICE Setup
-----------
+starBlast-VICE Setup
+--------------------
 To set up a custom database on the VICE platform, ...
 
 1. Click on the following button to quick launch sequence server with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4)
@@ -90,8 +90,8 @@ To set up a custom database on the VICE platform, ...
 
 ----
 
-Atmosphere Cloud Setup
-----------------------
+starBlast-Atmosphere Cloud Setup
+--------------------------------
 To deploy slastEasy setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/de/>`_.
 
 You will need to launch a Master Atmosphere instance that will host sequenceServer and one or more Worker Atmosphere instances as needed to distribute the blast jobs. 
@@ -133,8 +133,8 @@ Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actual Master IP addr
 
 ----
 
-HPC Setup
----------
+starBlast-HPC Setup
+-------------------
 
 First, you will need to follow the above steps for setting up a Worker instance on Atmosphere. Then you can follow these steps to set up Workers on HPC using PBS scripts:
 
@@ -158,6 +158,24 @@ Once you have a Master Atmosphere Instance:
    <WORKER_VM_IP_ADDRESS>
    
 ----
+
+Appendix A
+----------
+
+starBlast-Atmosphere Image Variant
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+starBlast-Atmosphere Using iRods for Custom Databases
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+starBlast-VICE Using Custom Databases
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Making Custom Databases using ncbi_makeblastdb_docker
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<link to ncbi_makeblastdb_docker>
+
 
 
 ----
