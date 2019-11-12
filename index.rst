@@ -108,7 +108,7 @@ Setting Up Master Instance
 
 .. code:: 
 
-   docker blah blah blah
+   docker run -ti -p 80:3000 -p 9123:9123 -e WORKQUEUE_PASSWORD=p123 -e BLAST_NUM_THREADS=4 zhxu73/sequenceserver-scale
 
 Setting Up Worker Instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -120,12 +120,12 @@ Setting Up Worker Instance
 
 .. code:: 
 
-   docker blah <MASTER_VM_IP_ADDRESS> blah 
+   docker run -ti --net=host -e WORKQUEUE_PASSWORD=p123 -e MASTER_IP=XXX.XXX.XXX.XX -e BLAST_NUM_THREADS=4 -e NUM_WORKER=2 zhxu73/sequenceserver-scale-worker
    
 Start Blasting
 ~~~~~~~~~~~~~~
 
-Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actual Master IP address to start BLASTING!
+Now, anyone can enter the <MASTER_VM_IP_ADDRESS> in your browser to access sequence-Server front-end and start BLASTING!
 
 .. code::
 
@@ -167,6 +167,8 @@ starBlast-Atmosphere Image Variant
 
 starBlast-Atmosphere Using iRods for Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Set the PATH to custom databases on CyVerse Data Store using the `-e IRODS_SYNC_PATH=/PATH/TO/Databases` 
 
 starBlast-VICE Using Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
