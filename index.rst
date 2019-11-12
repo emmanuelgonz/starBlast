@@ -30,6 +30,8 @@ atmosphere starBlast breathes life into stars
 starBlast HPC
 ~~~~~~~~~~~~~
 
+High performance computers blast starblast blast queries with performance that is high in the stars
+
 
 What is sequenceServer?
 -----------------------
