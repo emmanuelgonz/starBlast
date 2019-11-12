@@ -94,7 +94,7 @@ starBlast-Atmosphere Cloud Setup
 --------------------------------
 To deploy slastEasy setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/de/>`_.
 
-You will need to launch a Master Atmosphere instance that will host sequenceServer and one or more Worker Atmosphere instances as needed to distribute the blast jobs. 
+You will need to launch a Master instance that will host sequenceServer and one or more Worker instances as needed to distribute the blast jobs. 
 
 Both the Master and Worker Virtual Machine instances use Docker containers to run sequenceserver and connect Workers. 
 
@@ -104,11 +104,15 @@ Setting Up Master Instance
 2. Launch a Master (medium1) instance which will broadcast as a Master using `this <https://atmo.cyverse.org/application/images/1759>`_ image with docker preinstalled.
 3. When the instance is ready showing Active (with a green dot) ssh into your virtual machine using ssh <CYVERSE_USERNAME>@<MASTER_VM_IP_ADDRESS> and enter your cyverse password.
 
-4. copy and pase the following code to launch sequence server ready to distribute BLAST queries to workers
+4. copy and pase the following code to launch sequenceserver with two databases (Human_GRCh38_p12 & Mouse_GRCm38_p4) ready to distribute BLAST queries to workers
 
 .. code:: 
 
    docker run -ti -p 80:3000 -p 9123:9123 -e WORKQUEUE_PASSWORD=p123 -e BLAST_NUM_THREADS=4 zhxu73/sequenceserver-scale
+   
+.. note::
+	
+   It might take 2-5min to download the databases from CyVerse data store		
 
 Setting Up Worker Instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -125,11 +129,11 @@ Setting Up Worker Instance
 Start Blasting
 ~~~~~~~~~~~~~~
 
-Now, anyone can enter the <MASTER_VM_IP_ADDRESS> in your browser to access sequence-Server front-end and start BLASTING!
+Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access sequence-Server front-end and start BLASTING!
 
 .. code::
 
-   <WORKER_VM_IP_ADDRESS>
+   <MASTER_VM_IP_ADDRESS>
 
 ----
 
@@ -168,7 +172,11 @@ starBlast-Atmosphere Image Variant
 starBlast-Atmosphere Using iRods for Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Set the PATH to custom databases on CyVerse Data Store using the `-e IRODS_SYNC_PATH=/PATH/TO/Databases` 
+Set the PATH to custom databases on CyVerse Data Store by setting the custom IRODS_SYNC_PATH variable 
+
+.. code:: 
+   
+   -e IRODS_SYNC_PATH=/PATH/TO/Databases
 
 starBlast-VICE Using Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -177,7 +185,6 @@ Making Custom Databases using ncbi_makeblastdb_docker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 <link to ncbi_makeblastdb_docker>
-
 
 
 ----
@@ -195,31 +202,10 @@ Making Custom Databases using ncbi_makeblastdb_docker
 .. |sequenceServer| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
 .. _sequenceServer: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
 
-.. |RMTA-deseq2| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
-.. _RMTA-deseq2: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=1444198d-068f-4cf1-a3d1-df30e6d678f2&app-id=58f9a86c-2a74-11e9-b289-008cfa5ae621
-
 .. |RMTA_quick_launch_1| image:: ./img/RMTA_quick_launch_1.png
     :width: 450
     :height: 200
 .. _RMTA_quick_launch_1: http://learning.cyverse.org/
-.. |RMTA_quick_launch_3| image:: ./img/RMTA_quick_launch_3.png
-    :width: 450
-    :height: 200
-.. _RMTA_quick_launch_3: http://learning.cyverse.org/
-
-.. |DESeq2_quick_launch_1| image:: ./img/DESeq2_quick_launch_1.png
-    :width: 450
-    :height: 200
-.. _DESeq2_quick_launch_1: http://learning.cyverse.org/
-.. |DESeq2_quick_launch_3| image:: ./img/DESeq2_quick_launch_3.png
-    :width: 450
-    :height: 200
-.. _DESeq2_quick_launch_3: http://learning.cyverse.org/
-
-.. |RNAseq_Webinar_test_data| image:: ./img/RNAseq_Webinar_test_data.png
-    :width: 500
-    :height: 250
-.. _RNAseq_Webinar_test_data: http://learning.cyverse.org/
 
 .. |CyVerse logo| image:: ./img/cyverse_rgb.png
     :width: 500
