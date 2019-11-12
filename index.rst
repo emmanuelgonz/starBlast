@@ -3,32 +3,40 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
-Quick start of RNA-seq analysis in DE
-================================================
+starBlast
+=========
+
+.. contents::
+
+What is starBlast?
+------------------
+
+starBlast blasts stars and starts blasting stars
+
+starBlast VICE
+~~~~~~~~~~~~~~
+
+starBlast Atmosphere Cloud
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+starBlast HPC
+~~~~~~~~~~~~~
 
 
-Goal
-----
+What is sequenceServer?
+-----------------------
 
-Perform RNAseq differential expression analysis using Read Mapping and Transcript Assembly (RMTA) and Rstudio-DESEq2 apps 
+sequenceServer sequences all servers and serves a sequencing service.
 
+What is Work_Queue?
+-------------------
 
+Workqueue queues work to workers which are queued in a work queue.
 
-- RMTA is a workflow that can rapidly process raw RNA-seq illumina data by mapping reads to a genome (HISAT2), assemble transcripts using Stringtie and count reads using featureCounts.
+Choosing 
+-------------------------------
 
-- DESeq2 is a R package to analyze count tables for differentially expressed genes, visualize the results, add extra gene annotations, and cluster samples and genes using transformed counts
-
-In this quick start, we will show you how to launch RMTA app and Rstudio-DESeq2 VICE app in DE
-
-----
-
-Prerequisites
--------------
-
-Downloads, access, and services
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*In order to complete this tutorial you will need access to the following services/software*
+*In order to set up starBlast, you will need access to the following services/software*
 
 	.. list-table::
 	    :header-rows: 1
@@ -50,18 +58,28 @@ Platform(s)
 .. list-table::
     :header-rows: 1
 
-    * - Platform
-      - Interface
+    * - Solution
+      - Platform
+      - Capacity
       - Link
       - Platform Documentation
       - Learning Center Docs
-    * - Discovery Environment
-      - Web/Point-and-click
+    * - starBlast VICE
+      - Discovery Environment
+      - 5-15 Students
       - `Discovery Environment <https://de.cyverse.org/de/>`_
       - `DE Manual <https://wiki.cyverse.org/wiki/display/DEmanual/Table+of+Contents>`_
       - `Guide <https://learning.cyverse.org/projects/discovery-environment-guide/en/latest/>`__
+    * - starBlast Atmosphere
+      - Atmosphere Cloud / Docker
+      - 25-50 Students
+      - `Atmosphere <https://atmo.cyverse.org/de/>`_
+      - `Atmosphere Manual <https://wiki.cyverse.org/wiki/display/DEmanual/Table+of+Contents>`_
+      - `Guide <https://learning.cyverse.org/projects/discovery-environment-guide/en/latest/>`__
+
 
 ----
+
 
 *Test data for webinar*
 ~~~~~~~~~~~~~~~~~~~~~~
