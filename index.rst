@@ -109,7 +109,26 @@ Setting Up Master Instance
 
    docker blah blah blah
 
+Setting Up Worker Instance
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Go to https://atmo.cyverse.org and log in with your Cyverse Username and Password
+2. Launch a Worker (XLarge1) instance which will connect to the Master using '_this <https://atmo.cyverse.org/application/images> image with docker preinstalled.
+3. When the instance is ready showing Active (with a green dot) ssh into your virtual machine using ssh <CYVERSE_USERNAME>@<WORKER_VM_IP_ADDRESS> and enter your cyverse password.
 
+4. copy and pase the following code to connect the Worker to the Master. You will need to copy the Master's IP Address and replace <WORKER_VM_IP_ADDRESS> with the actual IP Address of the MASTER. This will tell the Worker where to find the master. 
+
+.. code:: 
+
+   docker blah <WORKER_VM_IP_ADDRESS> blah 
+   
+Start Blasting
+~~~~~~~~~~~~~~
+
+Enter the <WORKER_VM_IP_ADDRESS> in your browser using the actual Master IP address to start BLASTING!
+
+.. code::
+
+   <WORKER_VM_IP_ADDRESS>
 
 ----
 
