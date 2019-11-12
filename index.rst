@@ -18,7 +18,7 @@ starBlast VICE
 
 Click on the following button to quick launch sequence server with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4)
 
-	|sequenceServer|
+	|sequenceServer|_
 
 starBlast Atmosphere Cloud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -213,7 +213,7 @@ Additional information, help
 `Learning Center Home`_
 
 .. |sequenceServer| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
-.. _sequenceserver: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
+.. _sequenceServer: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
 
 .. |RMTA-deseq2| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
 .. _RMTA-deseq2: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=1444198d-068f-4cf1-a3d1-df30e6d678f2&app-id=58f9a86c-2a74-11e9-b289-008cfa5ae621
