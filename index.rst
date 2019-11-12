@@ -16,6 +16,8 @@ starBlast blasts stars and starts blasting stars
 starBlast VICE
 ~~~~~~~~~~~~~~
 
+VICE is a Visual and Interactive Computing Environment which is the latest feature in CyVerse’s Discovery Environment (DE) for running interactive apps such as Rstudio and Jupyter Notebooks. 
+
 Click on the following button to quick launch sequence server with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4)
 
 	|sequenceServer|_
@@ -85,107 +87,14 @@ Platform(s)
 ----
 
 
-*Test data for webinar*
-~~~~~~~~~~~~~~~~~~~~~~
+----
 
-|RNAseq_Webinar_test_data|_
 
 ----
 
-*Launch RMTA_v2.6.1 with test data*
----------------------------------------
 
-.. Note:: 
-
-Right-Click the below button and open in a new tab for quick launch of RMTA-2.6.1 analysis with test data
-	
-	|rmta-2.6.1|_
-
-1. Login to the |discovery_enviornment|.
-
-2. CLick on "Apps" tab in the Discovery Enviornment and search for "RMTA v2.6.1".
-
-3. Click on the three dots button near the top-right corner of the app and click on "Quick Launch".
-
-|RMTA_quick_launch_1|_
-
-4. Click on the "RNAseq_Webinar_RMTA" quick launch and click on the play button to launch.
-
-|RMTA_quick_launch_3|_
-
-5. Under “Analysis Name” leave the defaults or make any desired notes.
-
-   .. Note::
-
-	    The quick launch feature comes pre-loaded with required files (reference genome, annotation and single-end fastq reads) for performing read mapping and transcript assembly of the test data.
-
-6. Under "Resource Requirements" request resources as needed or leave for defaults 
-
-7. Click **Launch Analysis**. You will receive a notification that the job has been submitted and running.
-
-.. Note::
-
-  You will be notified when the analysis has finished successfully.
-
-8. Click on the "Analyses" button to display the dashboard of your analyses. Click on your RMTA anlaysis to
-navigate to that analysis folder in your data store. 
-
-.. Note::
-
-  We will need the "feature_counts.txt" file from the "Feature_counts" folder in the "RMTA_Output" folder for next differential expression analysis.
 
 ----
-
-*Launch Rstudio-DESEq2 VICE app with test script*
----------------------------------------
-
-VICE is a Visual and Interactive Computing Environment which is the latest feature in CyVerse’s Discovery Environment (DE) for running interactive apps such as Rstudio and Jupyter Notebooks. 
-
-.. Note::
-
-Right-Click the below button and open in a new tab for quick launch of Rstudio-DESeq2 VICE app
-
-	|RMTA-deseq2|_
-	    
-1. CLick on "Apps" tab in the Discovery Enviornment and search for "Rstudio-DESeq2".
-
-2. Click on the three dots button near the top-right corner of the app and click on "Quick Launch".
-
-|DESeq2_quick_launch_1|_
-
-3. Click on the "RNAseq_Webinar_DESEq2" quick launch and click on the play button to launch.
-
-|DESeq2_quick_launch_3|_
-
-4. Under “Analysis Name” leave the defaults or make any desired notes.
-
-5. Under "Select input files and folder" add the "feature_counts.txt" file we got from our previous RMTA run.
-
-   .. Note::
-
-	    The quick launch feature comes pre-loaded with DESeq2 R script.
-
-6. Under "Resource Requirements" request resources as needed or leave for defaults.
-
-7. Click **Launch Analysis**. You will receive a notification that the job has been submitted and running with the "Access your running analysis here". 
-
-8. Clicking on the "Access your running analysis" will open the Rstudio-DESeq2 in another tab in the browser after a brief building phase.
-
-.. Note::
-
-  You will be asked to authenticate again to the Rstudio with your CyVerse username and password
-
-9. The username and password for logging into Rstudio are "rstudio".
-
-10. Finally, once you finish analysis, navigate to the DE tab, select the Analysis window and select the analysis, click "save and complete analysis". Upon clicking complete analysis, the analysis will be completed and all the outputs will be brought back to the analysis folder.
-
-----
-
-   .. Note::
-
-	    To use our example script, navigate to *Community Data >*
-	    *iplantcollaborative > example_data > RNAseq_Webinar *
-
 
 Additional information, help
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
