@@ -88,8 +88,6 @@ To set up a custom database on the VICE platform, ...
 3. Check the Bell Icon for a link to your sequenceserver instance
 4. Start BLASTING
 
-See documentation and a demo tutorial on launching the sequenceserver VICE app `here <https://cyverse-sequenceserver.readthedocs-hosted.com/en/latest/>`_.
-
 ----
 
 starBlast-Atmosphere Cloud Setup
@@ -105,13 +103,13 @@ Launching Master & Worker Instances
 1. Go to https://atmo.cyverse.org and log in with your Cyverse Username and Password
 2. Launch a Master (medium1) instance which will broadcast as a Master using `this <https://atmo.cyverse.org/application/images/1759>`_ image with docker preinstalled.
 3. Launch a Worker (XLarge1) instance which will connect to the Master using `this <https://atmo.cyverse.org/application/images/1759>`_ image with docker preinstalled.
-4. When the instances are ready showing Active (with a green dot), ssh into your virtual machine using ssh <CYVERSE_USERNAME>@<MASTER_VM_IP_ADDRESS> and enter your cyverse password.
+4. When the instances are ready showing Active (with a green dot), login to your Master and Worker instances using ssh <CYVERSE_USERNAME>@<MASTER_VM_IP_ADDRESS> and enter your cyverse password.
 
 
 Setting Up Master Docker
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Copy and pase the following code to launch sequenceServer with two databases (Human_GRCh38_p12 & Mouse_GRCm38_p4) ready to distribute BLAST queries to workers
+Copy and pase the following code in the Master instance to launch sequenceServer with two databases (Human_GRCh38_p12 & Mouse_GRCm38_p4) ready to distribute BLAST queries to workers
 
 .. code:: 
 
@@ -124,7 +122,7 @@ Copy and pase the following code to launch sequenceServer with two databases (Hu
 Setting Up Worker Docker
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Copy and paste the following code to connect the Worker to the Master. The Worker knows where to find the master by the environmental variable PROJECT_NAME set as above. 
+Copy and paste the following code into your Worker instance to connect the Worker docker to the Master docker. The Worker knows where to find the master by the environmental variable PROJECT_NAME set as above. 
 
 .. code:: 
 
@@ -170,9 +168,6 @@ Once you have a Master Atmosphere Instance:
 Appendix A
 ----------
 
-starBlast-Atmosphere Image Variant
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 starBlast-Atmosphere Using iRods for Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -185,10 +180,40 @@ Set the PATH to custom databases on CyVerse Data Store by setting the custom IRO
 starBlast-VICE Using Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Making Custom Databases using ncbi_makeblastdb_docker
+See documentation and a demo tutorial on launching the sequenceserver VICE app with custom databases `here <https://cyverse-sequenceserver.readthedocs-hosted.com/en/latest/>`_.
+
+starBlast-Cloud Using Custom Databases
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+starBlast (no-irods) docker containers can be run on any cloud platform/s you have access to by supplying the local path to blast databases as follows:
+
+Master/Web Docker
+
+.. code::
+   
+   docker run -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBlast -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 --volume=/local_db_path:/var/www/sequenceserver/db zhxu73/sequenceserver-scale:no-irods
+
+Worker Docker
+
+.. code::
+
+   docker run -ti --net=host -e PROJECT_NAME=starBlast -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e NUM_WORKER=2 --volume=/local_db_path:/var/www/sequenceserver/db zhxu73/sequenceserver-scale-worker:no-irods
+   
+.. note::
+
+   Here are some links to private and public cloud service providers:
+   `XSEDE Jetstream <https://use.jetstream-cloud.org/application/images>`_
+   `Digital Ocean CLoud <https://www.digitalocean.com/>`_
+   `Google Cloud Platform <https://cloud.google.com/>`_
+
+
+starBlast-Atmosphere Image Variant
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Making Custom Databases using ncbi_blast_docker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting-BLAST-databases>`_
+Read more here at `ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting-BLAST-databases>`_
 
 
 ----
