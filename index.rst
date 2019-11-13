@@ -92,11 +92,11 @@ To set up a custom database on the VICE platform, ...
 
 starBlast-Atmosphere Cloud Setup
 --------------------------------
-To deploy slastEasy setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/de/>`_.
+To deploy blastEasy setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/application/images>`_. Request 
 
 You will need to launch a Master instance that will host sequenceServer and one or more Worker instances as needed to distribute the blast jobs. 
 
-Both the Master and Worker Virtual Machine instances use Docker containers to run sequenceserver and connect Workers. 
+Both the Master and Worker Virtual Machine instances use Docker containers to run sequenceServer and connect Workers. 
 
 Setting Up Master Instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -108,12 +108,12 @@ Setting Up Master Instance
 
 .. code:: 
 
-   docker run -ti -p 80:3000 -p 9123:9123 -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 zhxu73/sequenceserver-scale
+   docker run -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBlast -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 zhxu73/sequenceserver-scale
    
 .. note::
 	
-   It might take 2-5min to download the databases from CyVerse data store		
-
+   It might take 2-5min to download the databases from CyVerse data store	
+   
 Setting Up Worker Instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. Go to https://atmo.cyverse.org and log in with your Cyverse Username and Password
@@ -124,7 +124,7 @@ Setting Up Worker Instance
 
 .. code:: 
 
-   docker run -ti --net=host -e WORKQUEUE_PASSWORD= -e MASTER_IP=XXX.XXX.XXX.XX -e BLAST_NUM_THREADS=4 -e NUM_WORKER=2 zhxu73/sequenceserver-scale-worker
+   docker run -ti --net=host -e PROJECT_NAME=starBlast -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e NUM_WORKER=2 zhxu73/sequenceserver-scale-worker
    
 Start Blasting
 ~~~~~~~~~~~~~~
