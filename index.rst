@@ -88,6 +88,8 @@ To set up a custom database on the VICE platform, ...
 3. Check the Bell Icon for a link to your sequenceserver instance
 4. Start BLASTING
 
+See documentation and a demo tutorial on launching the sequenceserver VICE app `here <https://cyverse-sequenceserver.readthedocs-hosted.com/en/latest/>`_.
+
 ----
 
 starBlast-Atmosphere Cloud Setup
