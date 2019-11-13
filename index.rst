@@ -92,19 +92,24 @@ To set up a custom database on the VICE platform, ...
 
 starBlast-Atmosphere Cloud Setup
 --------------------------------
-To deploy blastEasy setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/application/images>`_. Request 
+To deploy blastEasy setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/application/images>`_. Request access to Atmosphere from your `CyVerse user account <https://user.cyverse.org>`_.
 
 You will need to launch a Master instance that will host sequenceServer and one or more Worker instances as needed to distribute the blast jobs. 
 
 Both the Master and Worker Virtual Machine instances use Docker containers to run sequenceServer and connect Workers. 
 
-Setting Up Master Instance
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Launching Master & Worker Instances
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. Go to https://atmo.cyverse.org and log in with your Cyverse Username and Password
 2. Launch a Master (medium1) instance which will broadcast as a Master using `this <https://atmo.cyverse.org/application/images/1759>`_ image with docker preinstalled.
-3. When the instance is ready showing Active (with a green dot) ssh into your virtual machine using ssh <CYVERSE_USERNAME>@<MASTER_VM_IP_ADDRESS> and enter your cyverse password.
+3. Launch a Worker (XLarge1) instance which will connect to the Master using `this <https://atmo.cyverse.org/application/images/1759>`_ image with docker preinstalled.
+4. When the instances are ready showing Active (with a green dot), ssh into your virtual machine using ssh <CYVERSE_USERNAME>@<MASTER_VM_IP_ADDRESS> and enter your cyverse password.
 
-4. copy and pase the following code to launch sequenceserver with two databases (Human_GRCh38_p12 & Mouse_GRCm38_p4) ready to distribute BLAST queries to workers
+
+Setting Up Master Docker
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Copy and pase the following code to launch sequenceServer with two databases (Human_GRCh38_p12 & Mouse_GRCm38_p4) ready to distribute BLAST queries to workers
 
 .. code:: 
 
@@ -114,13 +119,10 @@ Setting Up Master Instance
 	
    It might take 2-5min to download the databases from CyVerse data store	
    
-Setting Up Worker Instance
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-1. Go to https://atmo.cyverse.org and log in with your Cyverse Username and Password
-2. Launch a Worker (XLarge1) instance which will connect to the Master using `this <https://atmo.cyverse.org/application/images/1759>`_ image with docker preinstalled.
-3. When the instance is ready showing Active (with a green dot) ssh into your virtual machine using ssh <CYVERSE_USERNAME>@<WORKER_VM_IP_ADDRESS> and enter your cyverse password.
+Setting Up Worker Docker
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-4. copy and pase the following code to connect the Worker to the Master. You will need to copy the Master's IP Address and replace <WORKER_VM_IP_ADDRESS> with the actual IP Address of the MASTER. This will tell the Worker where to find the master. 
+Copy and paste the following code to connect the Worker to the Master. The Worker knows where to find the master by the environmental variable PROJECT_NAME set as above. 
 
 .. code:: 
 
@@ -184,7 +186,7 @@ starBlast-VICE Using Custom Databases
 Making Custom Databases using ncbi_makeblastdb_docker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<link to ncbi_makeblastdb_docker>
+`ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting-BLAST-databases>`_
 
 
 ----
