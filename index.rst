@@ -108,7 +108,7 @@ Setting Up Master Instance
 
 .. code:: 
 
-   docker run -ti -p 80:3000 -p 9123:9123 -e WORKQUEUE_PASSWORD=p123 -e BLAST_NUM_THREADS=4 zhxu73/sequenceserver-scale
+   docker run -ti -p 80:3000 -p 9123:9123 -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 zhxu73/sequenceserver-scale
    
 .. note::
 	
@@ -124,7 +124,7 @@ Setting Up Worker Instance
 
 .. code:: 
 
-   docker run -ti --net=host -e WORKQUEUE_PASSWORD=p123 -e MASTER_IP=XXX.XXX.XXX.XX -e BLAST_NUM_THREADS=4 -e NUM_WORKER=2 zhxu73/sequenceserver-scale-worker
+   docker run -ti --net=host -e WORKQUEUE_PASSWORD= -e MASTER_IP=XXX.XXX.XXX.XX -e BLAST_NUM_THREADS=4 -e NUM_WORKER=2 zhxu73/sequenceserver-scale-worker
    
 Start Blasting
 ~~~~~~~~~~~~~~
