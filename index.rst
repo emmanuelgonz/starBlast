@@ -78,16 +78,17 @@ Platform(s)
 
 starBlast-VICE Setup
 --------------------
-To set up a custom database on the VICE platform, ...
 
-1. Click on the following button to quick launch sequence server with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4)
+
+1. Click on the following button to quick-launch sequence-server in CyVerse Discovery Environment with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4)
 
 	|sequenceServer|_
 	
 2. Click [Launch Analysis]
-3. Check the Bell Icon for a link to your sequenceserver instance
+3. Check the notifications Bell Icon for a link to your sequenceserver instance
 4. Start BLASTING
 
+To set up a custom database on the VICE platform, see the appendix section
 ----
 
 starBlast-Atmosphere Cloud Setup
