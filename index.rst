@@ -13,6 +13,10 @@ What is starBlast?
 
 starBlast blasts stars and starts blasting stars
 
+.. note::
+   
+   starBlast is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons.
+
 starBlast-VICE
 ~~~~~~~~~~~~~~
 
