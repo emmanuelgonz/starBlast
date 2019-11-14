@@ -257,6 +257,11 @@ Start BLASTING! Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actua
 Appendix A
 ----------
 
+starBlast concept map
+~~~~~~~~~~~~~~~~~~~~~
+
+|concept_map|_
+
 starBlast-Atmosphere Using iRods for Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -293,7 +298,7 @@ Worker Docker
    Here are some links to private and public cloud service providers:
    `XSEDE Jetstream <https://use.jetstream-cloud.org/application/images>`_
    
-   `Digital Ocean CLoud <https://www.digitalocean.com/>`_
+   `Digital Ocean Cloud <https://www.digitalocean.com/>`_. See more documentation `here </DO.rst>`_.
    
    `Google Cloud Platform <https://cloud.google.com/>`_
 
