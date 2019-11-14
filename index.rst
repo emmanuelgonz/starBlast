@@ -324,8 +324,8 @@ Read more here at `ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting
 .. _sequenceServer: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
 
 .. |concept_map| image:: ./img/concept_map.png
-    :width: 450
-    :height: 200
+    :width: 500
+    :height: 500
 .. _concept_map: http://learning.cyverse.org/
 
 .. |CyVerse logo| image:: ./img/cyverse_rgb.png
