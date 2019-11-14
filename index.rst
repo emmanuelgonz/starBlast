@@ -299,9 +299,10 @@ Worker Docker
 .. note::
 
    Here are some links to private and public cloud service providers:
+   
    `XSEDE Jetstream <https://use.jetstream-cloud.org/application/images>`_
    
-   `Digital Ocean Cloud <https://www.digitalocean.com/>`_. See more documentation `here </DO.rst>`_.
+   `Digital Ocean Cloud <https://www.digitalocean.com/>`_. See more documentation `here <https://github.com/sateeshperi/starBlast/blob/master/DO.rst>`_.
    
    `Google Cloud Platform <https://cloud.google.com/>`_
 
