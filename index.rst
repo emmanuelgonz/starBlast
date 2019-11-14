@@ -162,8 +162,11 @@ Setting Up the Worker HPC
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is important that the following software are installed on the HPC:
+
 - glibc version 2.14 or newer, 
+
 - ncbi-blast+ version 2.6.0 or newer (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz)
+
 - CCTools (cctools-7.0.21-x86_64-centos7.tar.gz)
 
 Put both ncbi-blast+ and CCTools in your home directory.
