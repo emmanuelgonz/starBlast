@@ -147,26 +147,102 @@ Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access se
 starBlast-HPC Setup
 -------------------
 
-First, you will need to follow the above steps for setting up a Worker instance on Atmosphere. Then you can follow these steps to set up Workers on HPC using PBS scripts:
+The starBlast-HPC Setup  was conceived for groups that wish a larger quantity of power.  
+In order to achieve a successful setup of the starBlast HPC system, a small amount of command line knowledge is required.
+Similar to the starBlast-Atmosphere Cloud,  the starBlast HPC system has a Master-Worker set up: a dockerized atmosphere VM machine acts as the Master, and the HPC acts as the Worker. It is suggested that the Worker is set up well ahead of time.
 
-For more info on setting up PBS scripts andusing qsub see <add link here>
+Setting Up the Worker HPC
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once you have a Master Atmosphere Instance: 
-1. Log in to hpc
-2. create PBS script <add instructions to pbs>
-	- load/get cctools 
-	- worqueue_factory <MASTER_VM_IP+ADDRESS>
-3. Use the qsub command to run PBS scripts
+It is important that the following software are installed on the HPC:
+- glibc version 2.14 or newer, 
+- ncbi-blast+ version 2.6.0 or newer (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz)
+- CCTools (cctools-7.0.21-x86_64-centos7.tar.gz)
+Put both ncbi-blast+ and CCTools in your home directory.
+Databases need to be downloaded in a personal directory in the home folder.
+
+.. code::
+
+   /home/<U_NUMBER>/<USER>/Database
+   
+The HPC uses a .pbs and qsub system to submit jobs.
+
+Create a .pbs file that contains the following code and change the <VARIABLES> to preferred options:
+
+.. code::
+
+   #!/bin/bash
+   #PBS -W group_list=<GROUP_NAME>
+   #PBS -q <QUEUE_TYPE>
+   #PBS -l select=<NUMBER_OF_NODES>:ncpus=<NUMBER_OF_CPUS_PER_NODE>:mem=<NUMBER_OF_RAM_PER_NODE>gb
+   #PBS -l place=pack:shared
+   #PBS -l walltime=<WALLTIME_REQUIRED>
+   #PBS -l cput=<WALLTIME_REQUIRED>
+   module load unsupported
+   module load ferng/glibc
+   export CCTOOLS_HOME=/home/<U_NUMBER>/<USER>/cctools-7.0.19-x86_64-centos7
+   export PATH=${CCTOOLS_HOME}/bin:$PATH
+   export PATH=$PATH:/home/<U_NUMBER>/<USER>/ncbi-blast-2.9.0+/bin
+   /home/<U_NUMBER>/<USER>/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory -M starBLAST -T local -w <NUMBER_OF_WORKERS>
+
+An example of a .pbs file running on the University of Arizona HPC:
+
+.. code::
+
+   #!/bin/bash
+   #PBS -W group_list=ericlyons
+   #PBS -q windfall
+   #PBS -l select=2:ncpus=6:mem=24gb
+   #PBS -l place=pack:shared
+   #PBS -l walltime=02:00:00
+   #PBS -l cput=02:00:00
+   module load unsupported
+   module load ferng/glibc
+   module load blast
+   export CCTOOLS_HOME=/home/u12/cosi/cctools-7.0.19-x86_64-centos7
+   export PATH=${CCTOOLS_HOME}/bin:$PATH
+   cd /home/u12/cosi/cosi-workers
+   /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory -M starBLAST -T local -w 2
+
+In the example above, the user already has blast installed (calls it using “module load blast“). The script will submit to the HPC nodes a total of 2 workers.
+
+Submit the .pbs script with 
 
 .. code::
     
-   qsub blah blah blah blah
+   qsub <NAME_OF_PBS>.pbs
    
-4. Start BLASTING! Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actual Master IP address.
+Setting Up Master Docker
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Copy and paste the following code in the Master instance to launch sequenceServer with two databases (Human_GRCh38_p12 & Mouse_GRCm38_p4) ready to distribute BLAST queries to workers
+
+IMPORTANT: THE PATH TO THE DATABASE ON THE MASTER NEED TO BE THE SAME AS THE ONE ON THE WORKER
+
+.. code:: 
+
+   docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST = -e BLAST_NUM_THREADS=4 -e SEQSERVER_DB_PATH=/home/<U_NUMBER>/<USER>/Database zhxu73/sequenceserver-scale
+   
+An example is:
+
+.. code:: 
+
+   docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST = -e BLAST_NUM_THREADS=4 -e SEQSERVER_DB_PATH=/home/u12/cosi/Data zhxu73/sequenceserver-scale
+   
+In case the user does not have access to iRODS please use:
 
 .. code::
 
-   <WORKER_VM_IP_ADDRESS>
+   docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e /home/<U_NUMBER>/<USER>/Database -v $HOME/blastdb:/<U_NUMBER>/<USER>/Database zhxu73/sequenceserver-scale:no-irods
+   
+.. note::
+
+   The custom Database folder on the Master needs to have read and write permissions
+Start BLASTING! Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actual Master IP address.
+
+.. code::
+
+   <MASTER_VM_IP_ADDRESS>
    
 ----
 
